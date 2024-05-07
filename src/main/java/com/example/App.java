@@ -56,6 +56,14 @@ public class App {
         System.out.println("result: " + a[5]);
     }
 
+    public void sortMovies(){
+        if (sortedState == SortedState.NONE || sortedState == SortedState.DESCENDING) {
+            sortMovies(SortedState.ASCENDING);
+        } else if (sortedState == SortedState.ASCENDING) {
+            sortMovies(SortedState.DESCENDING);
+        }
+    }
+
     /*
     public void task4_readFile(String filename) {
         // Task 4: fix compilation errosrs of this function
