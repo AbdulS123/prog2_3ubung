@@ -64,6 +64,20 @@ public class App {
         }
     }
 
+
+    public class Database {
+        public static final String DB_URL = "jdbc:h2:file: ./db/moviesDB";
+
+        public static final String username = "user";
+
+        public static final String password = "pass";
+
+        private static ConnectionSource connectionSource;
+
+        private Dao<WatchlistEntity, Long> dao;
+
+        private static Database instance;
+
     /*
     public void task4_readFile(String filename) {
         // Task 4: fix compilation errosrs of this function
