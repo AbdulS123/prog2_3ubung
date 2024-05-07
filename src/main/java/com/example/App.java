@@ -89,7 +89,20 @@ public class App {
         inputStream.close();
     }
      */
+    public Movie requestMovieById(UUID id){
+        String url = buildUrl(id);
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
 
+        try (Response response = client.newCall(request).execute()) {
+            Gson gson = new Gson();
+            return gson.fromJson(response.body().string(), Movie.class);
+        } catch (IOException ioe) {
+            MovieCell.showExceptionDialog(new IllegalArgumentException());
+        }
+        return null;
+    }
     /*
     public void task5_readFile(String filename){
         // Task 5: declare excpetions that might be thrown here
